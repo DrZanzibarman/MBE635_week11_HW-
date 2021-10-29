@@ -1,0 +1,130 @@
+---
+title: "Week_11"
+author: "Benjamin Gulmon"
+date: "10/26/2021"
+output: html_document
+---
+
+##Slide 30
+
+How Many Distinct Genus were considered
+```{sql connection=}
+
+SELECT DISTINCT genus FROM chile;
+
+```
+Returns:
+
+genus
+----------
+acanthina
+acanthocyc
+acanthople
+chaetopleu
+chiton
+lottia
+concholepa
+enoplochit
+fissurella
+heliaster
+scurria
+siphonaria
+stichaster
+tegula
+Tonicia
+tonicia
+adenocysti
+ahnfeltiop
+anthotoe
+austromega
+balanus
+benthic_di
+brachidont
+bryopsis
+bunodactis
+centrocera
+ceramium
+chaetomorp
+chondrus
+cladophora
+codium
+colpomenia
+corallina
+durvillaea
+ectocarpus
+enteromorp
+gelidium
+glossophor
+grateloupi
+gymnogongr
+halopteris
+hildenbran
+Oulactis
+jhelius
+laurencia
+lessonia
+lithothamn
+mazzaella
+montemaria
+nothobalan
+nothochtha
+nothogenia
+parantheop
+perumytilu
+petalonia
+petrogloss
+peysonella
+phragmatop
+phymactis
+plocamium
+polysiphon
+pyropia
+prionitis
+pyura
+ralfsia
+Rhizocloni
+Gastroclon
+rhodymenia
+sarcothali
+schottera
+schyzimeni
+scythosiph
+semimytilu
+trematocar
+ulva
+ulvella
+plankton
+gulls
+cinclodes
+Echinolitt
+austrolitt
+onchidella
+Allelopetr
+petrolisth
+trimusculu
+
+This is an unwieldy answer, further refinement is needed
+
+```{sql connection=}
+
+SELECT COUNT(DISTINCT genus) FROM chile
+```
+
+Return:
+
+COUNT(DISTINCT genus)
+---------------------
+85
+
+====================================================================
+
+Compute the average body weight for each genus
+
+
+
+====================================================================
+
+Count how many individuals in each phyllum inhabit low tide
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
