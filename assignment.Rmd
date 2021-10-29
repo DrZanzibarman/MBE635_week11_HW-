@@ -225,8 +225,24 @@ ulvella             0.0
 Count how many individuals in each phyllum inhabit low tide
 
 ```{sql connection=}
-
+SELECT phyllum, COUNT(species_ID) FROM chile WHERE shoreht_1_conservative = "low" GROUP BY phyllum
 ```
+
+return: 
+
+phyllum     COUNT(species_ID)
+----------  -----------------
+Algae       4
+Arthropoda  4
+Echinoderm  1
+Mollusca    16
+
+----------  ---------------
+
+===============================================================
+
+## Slide 43
+
 
 
 ## R Markdown
