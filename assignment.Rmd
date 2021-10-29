@@ -103,6 +103,8 @@ Allelopetr
 petrolisth
 trimusculu
 
+------
+
 This is an unwieldy answer, further refinement is needed
 
 ```{sql connection=}
@@ -120,11 +122,113 @@ COUNT(DISTINCT genus)
 
 Compute the average body weight for each genus
 
+```{sql connection=}
 
+ SELECT genus, AVG(CAST(bodymass AS INTEGER)) AS avg_bodymass FROM chile GROUP BY genus
+
+```
+
+Return:
+
+genus               avg_bodymass
+------------------  ------------
+Allelopetrolisthes  2.0
+Echinolittorina     0.0
+Gastroclonium       2.0
+Oulactis            11.0
+Rhizoclonium        1.0
+Tonicia             6.0
+acanthina           8.0
+acanthocyclus       6.0
+acanthopleura       5.0
+adenocystis         4.0
+ahnfeltiopsis       5.0
+anthotoe            10.0
+austrolittorina     0.0
+austromegabalanus   0.0
+balanus             0.0
+benthic_diatoms     0.0
+brachidontes        0.0
+bryopsis            0.0
+bunodactis          12.0
+centroceras         1.0
+ceramium            1.0
+chaetomorpha        5.0
+chaetopleura        0.0
+chiton              3.3333333333
+chondrus            0.0
+cinclodes           280.0
+cladophora          3.0
+codium              0.0
+colpomenia          0.0
+concholepas         2.0
+corallina offcinal  1.0
+durvillaea          10.0
+ectocarpus          1.0
+enoplochiton        6.0
+enteromorpha        0.0
+fissurella          19.857142857
+gelidium            3.0
+glossophora         7.0
+grateloupia         10.0
+gulls               500.0
+gymnogongrus        5.0
+halopteris          1.0
+heliaster           173.0
+hildenbrandia       0.0
+jhelius             0.0
+laurencia           3.0
+lessonia            15.0
+lithothamnion       0.0
+lottia              0.0
+mazzaella           3.0
+montemaria          0.0
+nothobalanus        0.0
+nothochthamalus     0.0
+nothogenia          2.0
+onchidella          0.0
+parantheopsis       10.0
+perumytilus         2.0
+petalonia           2.0
+petroglossum        5.0
+petrolisthes        2.0
+peysonella          0.0
+phragmatopoma       2.0
+phymactis           11.0
+plankton            1.0
+plocamium           5.0
+polysiphonia        0.0
+prionitis           2.0
+pyropia             1.0
+pyura               2.0
+ralfsia             0.0
+rhodymenia          2.0
+sarcothalia         2.0
+schottera           2.0
+schyzimenia         3.0
+scurria             0.5714285714
+scythosiphon        1.0
+semimytilus         0.0
+siphonaria          0.0
+stichaster          8.0
+tegula              1.0
+tonicia             6.0
+trematocarpus       3.0
+trimusculus         1.0
+ulva                2.0
+ulvella             0.0
+
+------------------ ----------
 
 ====================================================================
 
 Count how many individuals in each phyllum inhabit low tide
+
+```{sql connection=}
+
+```
+
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
