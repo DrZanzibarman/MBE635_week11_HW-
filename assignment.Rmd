@@ -243,7 +243,41 @@ Mollusca    16
 
 ## Slide 43
 
+This database has two data tables and they are joined by the common field of site ID with the following code
 
+```{sql connection=}
+
+CREATE VIEW both AS
+SELECT * FROM site INNER JOIN trans
+ON site.SiteID = trans.SiteID
+
+```
+
+
+Calculate the average value of urbanization(Urban) per Basin
+
+```{sql connection=}
+
+SELECT Basin, AVG(Urban) FROM site GROUP BY Basin
+
+```
+
+return:
+
+Basin       AVG(Urban)
+----------  ----------------
+1           1.18026315789474
+2           0.685625
+3           1.29039106145251
+4           -0.0664204545454
+5           -0.1218620689655
+6           0.30422857142857
+
+-------- ---------------
+
+===============================================================
+
+Find all the unique Basins where the transitions of both lucius and anguilla from P3 to P4 are classified as extirpated 
 
 ## R Markdown
 
