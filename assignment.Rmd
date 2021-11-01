@@ -6,7 +6,11 @@ output: html_document
 
 ---
 
+<<<<<<< HEAD
 The most current version of this project can be found [here on Github](https://github.com/DrZanzibarman/MBE635_week11_HW-.git)
+=======
+The most current version of this project can be found [here on Github]()
+>>>>>>> 9d1a51cf5f51fdba4eafe5568ba1af79815702dd
 
 
 
