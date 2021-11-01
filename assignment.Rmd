@@ -3,112 +3,45 @@ title: "Week_11"
 author: "Benjamin Gulmon"
 date: "10/26/2021"
 output: html_document
+
 ---
 
-```{r echo=FALSE}
+The most current version of this project can be found [here on Github]()
+
+
+
+```{r include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+## Slide 30
 
-##Slide 30
+#### How Many Distinct Genus were considered
 
-How Many Distinct Genus were considered
-```{sql}
+``` {sql}
 
 SELECT DISTINCT genus FROM chile;
-
 ```
+
 Returns:
 
-genus
-----------
-acanthina
-acanthocyc
-acanthople
-chaetopleu
-chiton
-lottia
-concholepa
-enoplochit
-fissurella
-heliaster
-scurria
-siphonaria
-stichaster
-tegula
-Tonicia
-tonicia
-adenocysti
-ahnfeltiop
-anthotoe
-austromega
-balanus
-benthic_di
-brachidont
-bryopsis
-bunodactis
-centrocera
-ceramium
-chaetomorp
-chondrus
-cladophora
-codium
-colpomenia
-corallina
-durvillaea
-ectocarpus
-enteromorp
-gelidium
-glossophor
-grateloupi
-gymnogongr
-halopteris
-hildenbran
-Oulactis
-jhelius
-laurencia
-lessonia
-lithothamn
-mazzaella
-montemaria
-nothobalan
-nothochtha
-nothogenia
-parantheop
-perumytilu
-petalonia
-petrogloss
-peysonella
-phragmatop
-phymactis
-plocamium
-polysiphon
-pyropia
-prionitis
-pyura
-ralfsia
-Rhizocloni
-Gastroclon
-rhodymenia
-sarcothali
-schottera
-schyzimeni
-scythosiph
-semimytilu
-trematocar
-ulva
-ulvella
-plankton
-gulls
-cinclodes
-Echinolitt
-austrolitt
-onchidella
-Allelopetr
-petrolisth
-trimusculu
+##### genus
 
-------
+acanthina acanthocyc acanthople chaetopleu chiton lottia concholepa
+enoplochit fissurella heliaster scurria siphonaria stichaster tegula
+Tonicia tonicia adenocysti ahnfeltiop anthotoe austromega balanus
+benthic_di brachidont bryopsis bunodactis centrocera ceramium chaetomorp
+chondrus cladophora codium colpomenia corallina durvillaea ectocarpus
+enteromorp gelidium glossophor grateloupi gymnogongr halopteris
+hildenbran Oulactis jhelius laurencia lessonia lithothamn mazzaella
+montemaria nothobalan nothochtha nothogenia parantheop perumytilu
+petalonia petrogloss peysonella phragmatop phymactis plocamium
+polysiphon pyropia prionitis pyura ralfsia Rhizocloni Gastroclon
+rhodymenia sarcothali schottera schyzimeni scythosiph semimytilu
+trematocar ulva ulvella plankton gulls cinclodes Echinolitt austrolitt
+onchidella Allelopetr petrolisth trimusculu
+
+------------------------------------------------------------------------
 
 This is an unwieldy answer, further refinement is needed
 
@@ -117,15 +50,17 @@ This is an unwieldy answer, further refinement is needed
 SELECT COUNT(DISTINCT genus) FROM chile
 ```
 
-Return:
+Returns:
 
-COUNT(DISTINCT genus)
----------------------
-85
+|COUNT(DISTINCT genus)|
+|:------------|
+|85|
+
+------
 
 ====================================================================
 
-Compute the average body weight for each genus
+#### Compute the average body weight for each genus
 
 ```{sql  }
 
@@ -133,122 +68,122 @@ Compute the average body weight for each genus
 
 ```
 
-Return:
+Returns:
 
-genus               avg_bodymass
-------------------  ------------
-Allelopetrolisthes  2.0
-Echinolittorina     0.0
-Gastroclonium       2.0
-Oulactis            11.0
-Rhizoclonium        1.0
-Tonicia             6.0
-acanthina           8.0
-acanthocyclus       6.0
-acanthopleura       5.0
-adenocystis         4.0
-ahnfeltiopsis       5.0
-anthotoe            10.0
-austrolittorina     0.0
-austromegabalanus   0.0
-balanus             0.0
-benthic_diatoms     0.0
-brachidontes        0.0
-bryopsis            0.0
-bunodactis          12.0
-centroceras         1.0
-ceramium            1.0
-chaetomorpha        5.0
-chaetopleura        0.0
-chiton              3.3333333333
-chondrus            0.0
-cinclodes           280.0
-cladophora          3.0
-codium              0.0
-colpomenia          0.0
-concholepas         2.0
-corallina offcinal  1.0
-durvillaea          10.0
-ectocarpus          1.0
-enoplochiton        6.0
-enteromorpha        0.0
-fissurella          19.857142857
-gelidium            3.0
-glossophora         7.0
-grateloupia         10.0
-gulls               500.0
-gymnogongrus        5.0
-halopteris          1.0
-heliaster           173.0
-hildenbrandia       0.0
-jhelius             0.0
-laurencia           3.0
-lessonia            15.0
-lithothamnion       0.0
-lottia              0.0
-mazzaella           3.0
-montemaria          0.0
-nothobalanus        0.0
-nothochthamalus     0.0
-nothogenia          2.0
-onchidella          0.0
-parantheopsis       10.0
-perumytilus         2.0
-petalonia           2.0
-petroglossum        5.0
-petrolisthes        2.0
-peysonella          0.0
-phragmatopoma       2.0
-phymactis           11.0
-plankton            1.0
-plocamium           5.0
-polysiphonia        0.0
-prionitis           2.0
-pyropia             1.0
-pyura               2.0
-ralfsia             0.0
-rhodymenia          2.0
-sarcothalia         2.0
-schottera           2.0
-schyzimenia         3.0
-scurria             0.5714285714
-scythosiphon        1.0
-semimytilus         0.0
-siphonaria          0.0
-stichaster          8.0
-tegula              1.0
-tonicia             6.0
-trematocarpus       3.0
-trimusculus         1.0
-ulva                2.0
-ulvella             0.0
+| genus              | avg_bodymass |
+|:-------------------|--------------|
+| Allelopetrolisthes | 2.0          |
+| Echinolittorina    | 0.0          |
+| Gastroclonium      | 2.0          |
+| Oulactis           | 11.0         |
+| Rhizoclonium       | 1.0          |
+| Tonicia            | 6.0          |
+| acanthina          | 8.0          |
+| acanthocyclus      | 6.0          |
+| acanthopleura      | 5.0          |
+| adenocystis        | 4.0          |
+| ahnfeltiopsis      | 5.0          |
+| anthotoe           | 10.0         |
+| austrolittorina    | 0.0          |
+| austromegabalanus  | 0.0          |
+| balanus            | 0.0          |
+| benthic_diatoms    | 0.0          |
+| brachidontes       | 0.0          |
+| bryopsis           | 0.0          |
+| bunodactis         | 12.0         |
+| centroceras        | 1.0          |
+| ceramium           | 1.0          |
+| chaetomorpha       | 5.0          |
+| chaetopleura       | 0.0          |
+| chiton             | 3.3333333333 |
+| chondrus           | 0.0          |
+| cinclodes          | 280.0        |
+| cladophora         | 3.0          |
+| codium             | 0.0          |
+| colpomenia         | 0.0          |
+| concholepas        | 2.0          |
+| corallina offcinal | 1.0          |
+| durvillaea         | 10.0         |
+| ectocarpus         | 1.0          |
+| enoplochiton       | 6.0          |
+| enteromorpha       | 0.0          |
+| fissurella         | 19.857142857 |
+| gelidium           | 3.0          |
+| glossophora        | 7.0          |
+| grateloupia        | 10.0         |
+| gulls              | 500.0        |
+| gymnogongrus       | 5.0          |
+| halopteris         | 1.0          |
+| heliaster          | 173.0        |
+| hildenbrandia      | 0.0          |
+| jhelius            | 0.0          |
+| laurencia          | 3.0          |
+| lessonia           | 15.0         |
+| lithothamnion      | 0.0          |
+| lottia             | 0.0          |
+| mazzaella          | 3.0          |
+| montemaria         | 0.0          |
+| nothobalanus       | 0.0          |
+| nothochthamalus    | 0.0          |
+| nothogenia         | 2.0          |
+| onchidella         | 0.0          |
+| parantheopsis      | 10.0         |
+| perumytilus        | 2.0          |
+| petalonia          | 2.0          |
+| petroglossum       | 5.0          |
+| petrolisthes       | 2.0          |
+| peysonella         | 0.0          |
+| phragmatopoma      | 2.0          |
+| phymactis          | 11.0         |
+| plankton           | 1.0          |
+| plocamium          | 5.0          |
+| polysiphonia       | 0.0          |
+| prionitis          | 2.0          |
+| pyropia            | 1.0          |
+| pyura              | 2.0          |
+| ralfsia            | 0.0          |
+| rhodymenia         | 2.0          |
+| sarcothalia        | 2.0          |
+| schottera          | 2.0          |
+| schyzimenia        | 3.0          |
+| scurria            | 0.5714285714 |
+| scythosiphon       | 1.0          |
+| semimytilus        | 0.0          |
+| siphonaria         | 0.0          |
+| stichaster         | 8.0          |
+| tegula             | 1.0          |
+| tonicia            | 6.0          |
+| trematocarpus      | 3.0          |
+| trimusculus        | 1.0          |
+| ulva               | 2.0          |
+| ulvella            | 0.0          |
 
------------------- ----------
+------------------------------------------------------------------------
 
 ====================================================================
 
-Count how many individuals in each phyllum inhabit low tide
+#### Count how many individuals in each phyllum inhabit low tide
 
 ```{sql  }
 SELECT phyllum, COUNT(species_ID) FROM chile WHERE shoreht_1_conservative = "low" GROUP BY phyllum
 ```
 
-return: 
+Returns:
 
-phyllum     COUNT(species_ID)
-----------  -----------------
-Algae       4
-Arthropoda  4
-Echinoderm  1
-Mollusca    16
+| phyllum    | COUNT(species_ID) |
+|:-----------|-------------------|
+| Algae      | 4                 |
+| Arthropoda | 4                 |
+| Echinoderm | 1                 |
+| Mollusca   | 16                |
 
-----------  ---------------
+------------------------------------------------------------------------
 
 ===============================================================
 
 ## Slide 43
 
-This database has two data tables and they are joined by the common field of site ID with the following code
+##### Before evaluating the following queries, this database has two data tables and they are joined by the common field of site ID with the following code
 
 ```{sql  }
 
@@ -258,8 +193,7 @@ ON site.SiteID = trans.SiteID
 
 ```
 
-
-Calculate the average value of urbanization(Urban) per Basin
+#### Calculate the average value of urbanization(Urban) per Basin
 
 ```{sql  }
 
@@ -267,22 +201,22 @@ SELECT Basin, AVG(Urban) FROM site GROUP BY Basin
 
 ```
 
-return:
+Returns:
 
-Basin       AVG(Urban)
-----------  ----------------
-1           1.18026315789474
-2           0.685625
-3           1.29039106145251
-4           -0.0664204545454
-5           -0.1218620689655
-6           0.30422857142857
+| Basin | AVG(Urban)       |
+|:------|:-----------------|
+| 1     | 1.18026315789474 |
+| 2     | 0.685625         |
+| 3     | 1.29039106145251 |
+| 4     | -0.0664204545454 |
+| 5     | -0.1218620689655 |
+| 6     | 0.30422857142857 |
 
--------- ---------------
+------------------------------------------------------------------------
 
 ===============================================================
 
-Find all the unique Basins where the transitions of both lucius and anguilla from P3 to P4 are classified as extirpated 
+#### Find all the unique Basins where the transitions of both lucius and anguilla from P3 to P4 are classified as extirpated
 
 ```{sql  }
 
@@ -290,15 +224,14 @@ SELECT Basin, Per1, Per2, lucius, anguilla FROM both WHERE Per1 = 'P3' AND Per2 
 
 ```
 
-return:
+Returns:
 
-Basin       Per1        Per2        lucius      anguilla
-----------  ----------  ----------  ----------  ----------
-3           P3          P4          extirpated  extirpated
+| Basin | Per1 | Per2 | lucius     | anguilla   |
+|:------|:-----|:-----|:-----------|:-----------|
+| 3     | P3   | P4   | extirpated | extirpated |
 
------ ------- -------- ------ -----------
+------------------------------------------------------------------------
 
+###### R Markdown
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+###### This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.

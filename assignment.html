@@ -172,31 +172,43 @@ pre code {
 </div>
 
 
-<pre class="r"><code>knitr::opts_chunk$set(eval = FALSE)</code></pre>
-<p>##Slide 30</p>
-<p>How Many Distinct Genus were considered</p>
+<div id="slide-30" class="section level2">
+<h2>Slide 30</h2>
+<div id="how-many-distinct-genus-were-considered" class="section level4">
+<h4>How Many Distinct Genus were considered</h4>
 <pre class="sql"><code>
-SELECT DISTINCT genus FROM chile;
-</code></pre>
+SELECT DISTINCT genus FROM chile;</code></pre>
 <p>Returns:</p>
-<div id="genus" class="section level2">
-<h2>genus</h2>
+<div id="genus" class="section level5">
+<h5>genus</h5>
 <p>acanthina acanthocyc acanthople chaetopleu chiton lottia concholepa enoplochit fissurella heliaster scurria siphonaria stichaster tegula Tonicia tonicia adenocysti ahnfeltiop anthotoe austromega balanus benthic_di brachidont bryopsis bunodactis centrocera ceramium chaetomorp chondrus cladophora codium colpomenia corallina durvillaea ectocarpus enteromorp gelidium glossophor grateloupi gymnogongr halopteris hildenbran Oulactis jhelius laurencia lessonia lithothamn mazzaella montemaria nothobalan nothochtha nothogenia parantheop perumytilu petalonia petrogloss peysonella phragmatop phymactis plocamium polysiphon pyropia prionitis pyura ralfsia Rhizocloni Gastroclon rhodymenia sarcothali schottera schyzimeni scythosiph semimytilu trematocar ulva ulvella plankton gulls cinclodes Echinolitt austrolitt onchidella Allelopetr petrolisth trimusculu</p>
 <hr />
 <p>This is an unwieldy answer, further refinement is needed</p>
 <pre class="sql"><code>
 SELECT COUNT(DISTINCT genus) FROM chile</code></pre>
-<p>Return:</p>
-</div>
-<div id="countdistinct-genus" class="section level2">
-<h2>COUNT(DISTINCT genus)</h2>
-<p>85</p>
+<p>Returns:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">COUNT(DISTINCT genus)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">85</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <p>====================================================================</p>
-<p>Compute the average body weight for each genus</p>
+</div>
+</div>
+<div id="compute-the-average-body-weight-for-each-genus" class="section level4">
+<h4>Compute the average body weight for each genus</h4>
 <pre class="sql"><code>
  SELECT genus, AVG(CAST(bodymass AS INTEGER)) AS avg_bodymass FROM chile GROUP BY genus
 </code></pre>
-<p>Return:</p>
+<p>Returns:</p>
 <table>
 <thead>
 <tr class="header">
@@ -549,9 +561,11 @@ SELECT COUNT(DISTINCT genus) FROM chile</code></pre>
 </table>
 <hr />
 <p>====================================================================</p>
-<p>Count how many individuals in each phyllum inhabit low tide</p>
+</div>
+<div id="count-how-many-individuals-in-each-phyllum-inhabit-low-tide" class="section level4">
+<h4>Count how many individuals in each phyllum inhabit low tide</h4>
 <pre class="sql"><code>SELECT phyllum, COUNT(species_ID) FROM chile WHERE shoreht_1_conservative = &quot;low&quot; GROUP BY phyllum</code></pre>
-<p>return:</p>
+<p>Returns:</p>
 <table>
 <thead>
 <tr class="header">
@@ -581,19 +595,23 @@ SELECT COUNT(DISTINCT genus) FROM chile</code></pre>
 <hr />
 <p>===============================================================</p>
 </div>
+</div>
 <div id="slide-43" class="section level2">
 <h2>Slide 43</h2>
-<p>This database has two data tables and they are joined by the common field of site ID with the following code</p>
+<div id="before-evaluating-the-following-queries-this-database-has-two-data-tables-and-they-are-joined-by-the-common-field-of-site-id-with-the-following-code" class="section level5">
+<h5>Before evaluating the following queries, this database has two data tables and they are joined by the common field of site ID with the following code</h5>
 <pre class="sql"><code>
 CREATE VIEW both AS
 SELECT * FROM site INNER JOIN trans
 ON site.SiteID = trans.SiteID
 </code></pre>
-<p>Calculate the average value of urbanization(Urban) per Basin</p>
+</div>
+<div id="calculate-the-average-value-of-urbanizationurban-per-basin" class="section level4">
+<h4>Calculate the average value of urbanization(Urban) per Basin</h4>
 <pre class="sql"><code>
 SELECT Basin, AVG(Urban) FROM site GROUP BY Basin
 </code></pre>
-<p>return:</p>
+<p>Returns:</p>
 <table>
 <thead>
 <tr class="header">
@@ -630,11 +648,13 @@ SELECT Basin, AVG(Urban) FROM site GROUP BY Basin
 </table>
 <hr />
 <p>===============================================================</p>
-<p>Find all the unique Basins where the transitions of both lucius and anguilla from P3 to P4 are classified as extirpated</p>
+</div>
+<div id="find-all-the-unique-basins-where-the-transitions-of-both-lucius-and-anguilla-from-p3-to-p4-are-classified-as-extirpated" class="section level4">
+<h4>Find all the unique Basins where the transitions of both lucius and anguilla from P3 to P4 are classified as extirpated</h4>
 <pre class="sql"><code>
 SELECT Basin, Per1, Per2, lucius, anguilla FROM both WHERE Per1 = &#39;P3&#39; AND Per2 = &#39;P4&#39; AND lucius = &quot;extirpated&quot; and anguilla = &quot;extirpated&quot;
 </code></pre>
-<p>return:</p>
+<p>Returns:</p>
 <table>
 <thead>
 <tr class="header">
@@ -656,10 +676,13 @@ SELECT Basin, Per1, Per2, lucius, anguilla FROM both WHERE Per1 = &#39;P3&#39; A
 </tbody>
 </table>
 <hr />
+<div id="r-markdown" class="section level6">
+<h6>R Markdown</h6>
 </div>
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<div id="this-is-an-r-markdown-document.-markdown-is-a-simple-formatting-syntax-for-authoring-html-pdf-and-ms-word-documents.-for-more-details-on-using-r-markdown-see-httprmarkdown.rstudio.com." class="section level6">
+<h6>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</h6>
+</div>
+</div>
 </div>
 
 
